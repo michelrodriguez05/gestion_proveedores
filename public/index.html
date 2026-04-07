@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Proveedores</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Gestion de Proveedores</h1>
+      <div class="auth-actions">
+        <button id="adminBtn">Admin</button>
+        <button id="providerBtn">Proveedor Nuevo</button>
+        <button id="logoutBtn" class="hidden danger">Cerrar sesion</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel search-panel" id="publicSearchPanel">
+        <h2>Buscador de proveedores</h2>
+        <div class="search-wrap">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Buscar por material, ciudad, servicio..."
+            autocomplete="off"
+          />
+        </div>
+        <p class="hint">
+          Escribe multiples palabras. El sistema encuentra coincidencias en todos los campos y prioriza ciudad + cobertura nacional.
+        </p>
+        <p id="searchState" class="status">Escribe para buscar proveedores.</p>
+        <div class="toolbar">
+          <span id="selectedCount">0 seleccionados</span>
+          <button id="copyEmailsBtn" class="ghost">Copiar correos comerciales</button>
+          <button id="copyBillingEmailsBtn" class="ghost">Copiar correos facturacion</button>
+          <button id="copyPhonesBtn" class="ghost">Copiar celulares</button>
+        </div>
+        <div class="table-wrap">
+          <table id="resultsTable">
+            <thead>
+              <tr>
+                <th>Sel</th>
+                <th>Razon social</th>
+                <th>Nombre comercial</th>
+                <th>Ciudad</th>
+                <th>Categoria</th>
+                <th>Contacto</th>
+                <th>Correo comercial</th>
+                <th>Celular</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" id="publicDetailPanel">
+        <h2>Ficha del proveedor</h2>
+        <div id="detailBox" class="detail empty">Selecciona un proveedor para ver su informacion.</div>
+      </section>
+
+      <section class="panel hidden" id="adminPanel">
+        <div class="panel-head">
+          <h2>Panel Administrador</h2>
+          <button id="backFromAdmin" class="back-btn" type="button">← Volver</button>
+        </div>
+        <p class="hint">El administrador puede crear, editar e importar proveedores.</p>
+        <input id="editId" type="number" placeholder="ID proveedor a editar" />
+        <button id="loadForEdit">Cargar para editar</button>
+        <form id="supplierForm"></form>
+        <div class="form-actions">
+          <button id="saveBtn">Guardar</button>
+          <button id="updateBtn" class="hidden">Actualizar</button>
+        </div>
+        <hr />
+        <h3>Carga Inicial de Datos</h3>
+        <input id="importFile" type="file" accept=".csv,.tsv,.txt,.json" />
+        <button id="importBtn">Importar archivo</button>
+      </section>
+
+      <section class="panel hidden" id="providerPanel">
+        <div class="panel-head">
+          <h2>Registro de Proveedor Nuevo</h2>
+          <button id="backFromProvider" class="back-btn" type="button">← Volver</button>
+        </div>
+        <p class="hint">Puedes crear tu registro una sola vez. Si necesitas cambios, solicita al administrador.</p>
+        <form id="providerForm"></form>
+        <div class="form-actions">
+          <button id="providerSaveBtn">Enviar registro</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="modal" class="modal hidden">
+      <div class="modal-card">
+        <h3 id="modalTitle">Acceso</h3>
+        <input id="userInput" type="text" placeholder="Usuario" />
+        <input id="passInput" type="password" placeholder="PIN o clave" />
+        <div class="form-actions">
+          <button id="loginSubmit">Ingresar</button>
+          <button id="closeModal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

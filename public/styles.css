@@ -1,0 +1,279 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #eef2f7;
+  color: #1d2939;
+}
+
+.topbar {
+  background: #0b1b35;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 4px 16px rgba(11, 27, 53, 0.25);
+}
+
+.auth-actions button {
+  margin-left: 8px;
+}
+
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar .auth-actions button {
+  width: auto;
+  min-width: 130px;
+  margin-left: 0;
+  padding: 8px 12px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 18px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+  border: 1px solid #dde5ef;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-btn {
+  width: auto;
+  background: #64748b;
+  padding: 8px 12px;
+}
+
+.search-panel {
+  grid-column: 1 / -1;
+}
+
+.search-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 6px;
+}
+
+input,
+button,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  margin: 6px 0;
+}
+
+#searchInput {
+  max-width: 780px;
+  border-radius: 999px;
+  padding: 14px 18px;
+  font-size: 16px;
+  border: 1px solid #b8c5d8;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+button {
+  cursor: pointer;
+  background: #1d4ed8;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  transition: 160ms ease;
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+.danger {
+  background: #dc2626;
+}
+
+.hint {
+  color: #475467;
+  font-size: 13px;
+}
+
+.status {
+  margin: 4px 0 10px;
+  color: #334155;
+  font-size: 13px;
+  min-height: 18px;
+}
+
+.status.loading {
+  color: #1d4ed8;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.toolbar span {
+  background: #e2e8f0;
+  color: #0f172a;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+button.ghost {
+  width: auto;
+  padding: 7px 10px;
+  background: #334155;
+}
+
+.table-wrap {
+  max-height: 420px;
+  overflow: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #edf2f7;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+th {
+  background: #f8fafc;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+tbody tr.selected {
+  background: #e0f2fe;
+}
+
+.detail {
+  max-height: 460px;
+  overflow: auto;
+  border: 1px solid #dbe4f0;
+  border-radius: 8px;
+  padding: 12px;
+  line-height: 1.4;
+  background: #fbfdff;
+}
+
+.detail h3 {
+  margin: 14px 0 8px;
+  color: #0f172a;
+}
+
+.detail p {
+  margin: 4px 0;
+}
+
+.empty {
+  color: #64748b;
+}
+
+.hidden {
+  display: none;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-card {
+  background: #fff;
+  width: 360px;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+}
+
+.modal-card .form-actions button {
+  margin-top: 8px;
+}
+
+@media (max-width: 700px) {
+  .layout {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .auth-actions {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .auth-actions button {
+    margin-left: 0;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
